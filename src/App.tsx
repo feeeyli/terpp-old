@@ -50,21 +50,6 @@ function App() {
 			});
 	};
 
-	const getClipboardContent = () => {
-		let text = "";
-
-		navigator.clipboard
-			.readText()
-			.then((received) => {
-				text = received;
-			})
-			.catch((err) => {
-				console.error("Failed to read clipboard contents: ", err);
-			});
-
-		return text;
-	};
-
 	const handlePaste = async () => {
 		const toPaste = await navigator.clipboard.readText();
 
