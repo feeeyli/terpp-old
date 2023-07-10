@@ -5,7 +5,6 @@ import axios from "axios";
 import { ytparse } from "./ytparse";
 
 export function Video({ video }: { video: VideoType }) {
-	const [dlResult, setDlResult] = useState(false);
 	const [isSearching, setIsSearching] = useState(false);
 
 	const handleDownload = async () => {
