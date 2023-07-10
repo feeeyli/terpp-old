@@ -58,14 +58,14 @@ function App() {
 
 	return (
 		<div className="font-normal w-screen h-screen grid place-content-center bg-gradient-to-tl from-pink-300 via-rose-300 to-purple-300">
-			<main className="p-12 bg-zinc-50 flex flex-col items-center rounded-md">
+			<main className="p-4 py-8 sm:p-12 bg-zinc-50 flex flex-col items-center sm:rounded-md w-screen sm:w-min">
 				<h1 className="font-light text-3xl tracking-widest mb-10 flex items-center gap-2">
 					TERPP <MusicNotes size={32} weight="bold" />
 				</h1>
-				<div>
+				<div className="w-full">
 					<input
 						type="text"
-						className="mb-4 w-96 border-2 border-zinc-200 outline-none bg-zinc-100 px-3 py-2 rounded-md ring-pink-400 ring-offset-2 focus:ring-2 placeholder:text-zinc-400"
+						className="mb-4 w-full sm:w-96 border-2 border-zinc-200 outline-none bg-zinc-100 px-3 py-2 rounded-md ring-pink-400 ring-offset-2 focus:ring-2 placeholder:text-zinc-400"
 						placeholder="Insira o URL da musica."
 						ref={urlInputRef}
 					/>
