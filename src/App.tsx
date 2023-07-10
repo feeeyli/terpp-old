@@ -60,7 +60,7 @@ function App() {
 		<div className="font-normal w-screen h-screen grid place-content-center bg-gradient-to-tl from-pink-300 via-rose-300 to-purple-300">
 			<main className="p-12 bg-zinc-50 flex flex-col items-center rounded-md">
 				<h1 className="font-light text-3xl tracking-widest mb-10 flex items-center gap-2">
-					TERPP <MusicNotes size={32} weight="thin" />
+					TERPP <MusicNotes size={32} weight="bold" />
 				</h1>
 				<div>
 					<input
