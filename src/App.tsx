@@ -23,6 +23,7 @@ type DlResultData = {
 function App() {
 	const [dlResult, setDlResult] = useState<DlResultData>();
 	const [isSearching, setIsSearching] = useState(false);
+	const [activeTab, setActiveTab] = useState<"search" | "link">("link");
 	const [searchResult, setSearchResult] = useState<SearchResults>();
 
 	const urlInputRef = useRef<HTMLInputElement>(null);
@@ -156,7 +157,7 @@ function App() {
 				<input
 					type="text"
 					className="mb-4 w-full sm:w-96 border-2 border-zinc-200 outline-none bg-zinc-100 px-3 py-2 rounded-md ring-pink-400 ring-offset-2 focus:ring-2 placeholder:text-zinc-400"
-					placeholder="Insira o URL da musica."
+					placeholder="Busque pela musica."
 					ref={urlInputRef}
 				/>
 				<div className="flex gap-2 flex-1">
@@ -198,13 +199,34 @@ function App() {
 		</>
 	);
 
+	const tabActiveClass = "border-b";
+
 	return (
 		<div className="font-normal w-screen h-screen grid sm:place-content-center bg-gradient-to-tl from-pink-300 via-rose-300 to-purple-300">
 			<main className="overflow-auto p-4 py-8 sm:p-12 bg-zinc-50 max-h-screen h-screen sm:h-min flex flex-col items-center sm:rounded-md w-screen sm:w-min">
 				<h1 className="font-light text-3xl tracking-widest mb-10 flex items-center gap-2">
 					TERPP <MusicNotes size={32} weight="thin" />
 				</h1>
-				{withSearch}
+				<div className="flex w-full mb-6">
+					<button
+						className={`flex-1 border-b-pink-300 ${
+							activeTab === "search" ? tabActiveClass : ""
+						}`}
+						onClick={() => setActiveTab("search")}
+					>
+						Via Busca
+					</button>
+					<button
+						className={`flex-1 border-b-pink-300 ${
+							activeTab === "link" ? tabActiveClass : ""
+						}`}
+						onClick={() => setActiveTab("link")}
+					>
+						Via Link
+					</button>
+				</div>
+				{activeTab === "link" && basic}
+				{activeTab === "search" && withSearch}
 			</main>
 		</div>
 	);
