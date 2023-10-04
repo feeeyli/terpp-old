@@ -13,7 +13,7 @@ export function Video({ video }: { video: VideoType }) {
 		const options = {
 			method: "GET",
 			url: "https://youtube-mp36.p.rapidapi.com/dl",
-			params: { id: ytparse(video.url || "") },
+			params: { id: ytparse(video.link || "") },
 			headers: {
 				"X-RapidAPI-Key":
 					"3e82b4b5aemsh6e0735361837025p1e67a2jsne58c9bf1f8c8",
@@ -42,9 +42,9 @@ export function Video({ video }: { video: VideoType }) {
 
 	return (
 		<li className="flex gap-2">
-			{video.bestThumbnail && (
+			{video.thumbnail && (
 				<img
-					src={video.bestThumbnail.url || ""}
+					src={video.thumbnail || ""}
 					alt={`Imagem do video "${video.title || "Desconhecido"}"`}
 					className="h-16 rounded-md"
 				/>
@@ -52,14 +52,14 @@ export function Video({ video }: { video: VideoType }) {
 			<div>
 				<span className="line-clamp-1">{video.title}</span>
 				<div className="flex gap-3">
-					{video.author && (
+					{video.channel && (
 						<span className="text-xs line-clamp-1 text-pink-300">
-							{video.author?.name}
+							{video.channel?.name}
 						</span>
 					)}
-					{!video.author && "Desconhecido"}
+					{!video.channel && "Desconhecido"}
 					<span className="text-xs text-pink-500">
-						{video.duration}
+						{video.durationString}
 					</span>
 				</div>
 				<button

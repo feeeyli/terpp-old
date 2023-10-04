@@ -142,7 +142,7 @@ function App() {
 				// 		url: vi.url,
 				// 	}))
 				// );
-				// console.log(res.data.items);
+				console.log(res.data);
 				setSearchResult(res.data);
 			})
 			.catch((err) => console.error(err))
@@ -188,11 +188,12 @@ function App() {
 						<h2 className="text-center text-lg">
 							Resultado da busca
 						</h2>
-						{searchResult.items.map((video, i) => {
-							if (i > 10 || video.type === "shelf") return;
+						{searchResult.videos.map((video, i) => {
+							if (i > 25) return;
 
 							return <Video key={i} video={video} />;
 						})}
+						{/* <pre>{JSON.stringify(searchResult, null, 2)}</pre> */}
 					</ul>
 				)}
 			</div>
